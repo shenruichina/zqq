@@ -1,0 +1,174 @@
+#include "stdio.h"
+#include"string.h"
+struct  node                   
+{    
+	char stuName[100];
+	int num;		            
+	double score;	     
+	struct node *next;        
+};				                                  
+
+struct node   *dele(struct  node  *head,int num)
+{
+    struct  node  *preNode,*curNode;
+    preNode=curNode=head;   
+	if(curNode->num==num)  
+	{
+		head=curNode->next;
+		printf("找到该项数据并删除，结果如下：\n\n\n");
+	}
+	else
+	{
+		while (curNode->num!=num && curNode->next!=NULL)
+		{    
+			preNode=curNode;        
+			curNode=curNode->next;        
+		}     
+		if(curNode->num==num)       
+		{
+			preNode->next=curNode->next; 
+			printf("找到该项数据并删除，结果如下：\n\n\n");
+		}		
+		else
+			printf("没有找到该项数据!\n");
+	}	
+	return head; 
+} 
+
+void show( struct node *h)               
+{                    
+	while(h!=NULL)
+	{ 
+		printf("学号： %d 名字：%s  成绩：%.2f\n",h->num,h->stuName,h->score);
+		h=h->next;
+	} 
+	printf("\n\n");
+}
+
+int main()
+{
+	int num2;
+	struct node a,b,c,d,*head;  
+	strcpy(a.stuName,"张三");
+	a.num=101;                 
+	a.score=77.5;
+
+	strcpy(b.stuName,"李四");
+	b.num=102;
+	b.score=80.3;
+
+	strcpy(c.stuName,"王二");
+	c.num=103;
+	c.score=86.1;
+
+	strcpy(d.stuName,"麻子");
+	d.num=104;
+	d.score=92;
+	
+	
+	head=&a;
+	a.next=&b;
+	b.next=&c;
+	c.next=&d;
+	d.next=NULL;
+	
+	show(head);
+	
+	printf("请输入要删除的学号:");
+	scanf("%d",&num2);
+	
+	printf("\n");
+	
+	head=dele(head,num2);         
+	show(head);
+	return 0;
+	
+}
+
+#include "stdio.h"
+#include"string.h"
+struct  node                   
+{    
+	char stuName[100];
+	int num;		            
+	double score;	     
+	struct node *next;        
+};				                                  
+
+struct node   *dele(struct  node  *head,int num)
+{
+    struct  node  *preNode,*curNode;
+    preNode=curNode=head;   
+	if(curNode->num==num)  
+	{
+		head=curNode->next;
+		printf("找到该项数据并删除，结果如下：\n\n\n");
+	}
+	else
+	{
+		while (curNode->num!=num && curNode->next!=NULL)
+		{    
+			preNode=curNode;        
+			curNode=curNode->next;        
+		}     
+		if(curNode->num==num)       
+		{
+			preNode->next=curNode->next; 
+			printf("找到该项数据并删除，结果如下：\n\n\n");
+		}		
+		else
+			printf("没有找到该项数据!\n");
+	}	
+	return head; 
+} 
+
+void show( struct node *h)               
+{                    
+	while(h!=NULL)
+	{ 
+		printf("学号： %d 名字：%s  成绩：%.2f\n",h->num,h->stuName,h->score);
+		h=h->next;
+	} 
+	printf("\n\n");
+}
+
+int main()
+{
+	int num2;
+	struct node a,b,c,d,*head;  
+	strcpy(a.stuName,"张三");
+	a.num=101;                 
+	a.score=77.5;
+
+	strcpy(b.stuName,"李四");
+	b.num=102;
+	b.score=80.3;
+
+	strcpy(c.stuName,"王二");
+	c.num=103;
+	c.score=86.1;
+
+	strcpy(d.stuName,"麻子");
+	d.num=104;
+	d.score=92;
+	
+	
+	head=&a;
+	a.next=&b;
+	b.next=&c;
+	c.next=&d;
+	d.next=NULL;
+	
+	show(head);
+	
+	printf("请输入要删除的学号:");
+	scanf("%d",&num2);
+	
+	printf("\n");
+	
+	head=dele(head,num2);         
+	show(head);
+	return 0;
+	
+
+}
