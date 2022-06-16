@@ -98,7 +98,7 @@ void showMenu()
 
 void loadData()
 {
-	FILE* fp=fopen("D:/桌面/atm1.txt","r");
+	FILE* fp=fopen("D://桌面/atm1.txt","r");
 	if(fp!=NULL)
 	{
 		while(!feof(fp))
