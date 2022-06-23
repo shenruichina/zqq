@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
+#include<windows.h>
 
 struct Account
 {
@@ -37,25 +37,25 @@ void signUpC()
 	
 	printf("请输入账号:\n");
 	scanf("%s",	newNodeP->username);
-		printf("请输入密码:\n");
-		scanf("%s",newNodeP->password);
-		
-		newNodeP->money=0;
-		newNodeP->next=NULL;
-		
-		if(head==NULL)
-		{
-			head=newNodeP;
-			tail=newNodeP;
-		}
-		else
-		{
-			tail->next=newNodeP;
-			tail=newNodeP;
-		}
-		
-		
-		printf("创建成功!\n");
+	printf("请输入密码:\n");
+	scanf("%s",newNodeP->password);
+	
+	newNodeP->money=0;
+	newNodeP->next=NULL;
+	
+	if(head==NULL)
+	{
+		head=newNodeP;
+		tail=newNodeP;
+	}
+	else
+	{
+		tail->next=newNodeP;
+		tail=newNodeP;
+	}
+	
+	
+	printf("创建成功!\n");
 }
 void signUpE()
 {
@@ -295,59 +295,84 @@ void transferE()
 
 void homePageC()
 {
-	system("cls");
-	printf("请选择服务：");
-	printf("按1修改密码，按2存款，按3取款，按4转账");
-	int gn;
-	scanf("%d",&gn);
-	if(gn==1)
+	while(1)
 	{
-		updatePasswordC();
-	}
-	else if(gn==2)
-	{
-        saveMoneyC();
-	}
-	else if(gn==3)
-	{
-		drawMoneyC();
-	}
-	else if(gn==4)
-	{
-		transferC();
-	}
-	else
-	{
-		printf("输入错误");
+		system("cls");
+		printf("请选择服务：");
+		printf("按1修改密码，按2存款，按3取款，按4转账,按0返回");
+		
+		int gn;
+		scanf("%d",&gn);
+		if(gn==1)
+		{
+			updatePasswordC();
+			Sleep(1200);
+		}
+		else if(gn==2)
+		{
+			saveMoneyC();
+			Sleep(1200);
+		}
+		else if(gn==3)
+		{
+			drawMoneyC();
+			Sleep(1200);
+		}
+		else if(gn==4)
+		{
+			transferC();
+			Sleep(1200);
+		}
+		else if(gn==0)
+		{
+			break;
+		}
+		else
+		{
+			printf("输入错误");
+			Sleep(200);
+		}
 	}
 }
 
 void homePageE()
 {
-	system("cls");
-	printf("please select a service：");
-	printf("press 1 to change the password，deposit by 2，withdraw by 3，transfer by 4");
-	int gn;
-	scanf("%d",&gn);
-	if(gn==1)
+	while(1)
 	{
-		updatePasswordE();
-	}
-	else if(gn==2)
-	{
-        saveMoneyE();
-	}
-	else if(gn==3)
-	{
-		drawMoneyE();
-	}
-	else if(gn==4)
-	{
-		transferE();
-	}
-	else
-	{
-		printf("Input error");
+		system("cls");
+		printf("please select a service：");
+		printf("press 1 to change the password，deposit by 2，withdraw by 3，transfer by 4");
+		int gn;
+		scanf("%d",&gn);
+		if(gn==1)
+		{
+			updatePasswordE();
+			Sleep(1200);
+		}
+		else if(gn==2)
+		{
+			saveMoneyE();
+			Sleep(1200);
+		}
+		else if(gn==3)
+		{
+			drawMoneyE();
+			Sleep(1200);
+		}
+		else if(gn==4)
+		{
+			transferE();
+			Sleep(1200);
+		}
+		else if(gn==0)
+		{
+			break;
+		}
+		else
+		{
+			printf("Input error");
+			Sleep(1200);
+		}
 	}
 }
 void signInC()
@@ -452,103 +477,135 @@ void saveData()
 
 void showMenuC()
 {
-	printf("开户，按1\n");
-	printf("登录，按2\n");
-	int n;
-	scanf("%d",&n);
-	
-	if(n==1)
+	while(1)
 	{
-		signUpC();
-	}
-	else if(n==2)
-	{
+		system("cls");
+		Sleep(200);
+		printf("开户，按1\n");
+		printf("登录，按2\n");
+		printf("返回，按0\n");
 		
-		signInC();
-	}
-	
-	
-	
-	else
-	{
-		printf("输入错误！");
+		int n;
+		scanf("%d",&n);
+		
+		if(n==1)
+		{
+			signUpC();	
+			Sleep(1000);
+		}
+		else if(n==2)
+		{
+			
+			signInC();
+			Sleep(1000);
+		}
+		else if(n==0)
+		{
+			break;
+		}
+		
+		
+		else
+		{
+			printf("输入错误！");
+		}
 	}
 }
 
 void showMenuE()
 {
-	printf("signUp，input 1\n");
-	printf("signIn，input 2\n");
-	int n;
-	scanf("%d",&n);
-	
-	if(n==1)
+	while(1)
 	{
-		signUpE();
-	}
-	else if(n==2)
-	{
+		printf("signUp，input 1\n");
+		printf("signIn，input 2\n");
+		printf("return,input 0\n");
+		int n;
+		scanf("%d",&n);
 		
-		signInE();
-		
-		
-	}
-	else
-	{
-		printf("Input error！");
+		if(n==1)
+		{
+			signUpE();
+			Sleep(1000);
+		}
+		else if(n==2)
+		{
+			
+			signInE();
+			Sleep(1000);
+			
+		}
+		else if(n==0)
+		{
+			break;
+		}
+		else
+		{
+			printf("Input error！");
+		}
 	}
 }
 int main()
 {
-	printf("欢迎使用一夜暴富银行\n");
-	printf("Welcome to Tianshen bank\n");
 	
-	int language;
-	printf("请选择语言\n");
+	while(1)
+	{	
+		system("cls");	
+		printf("欢迎使用一夜暴富银行\n");
+		printf("Welcome to one day rich bank\n");
+		
+		int language;
+		printf("请选择语言\n");
 		printf("please select a language\n");
-	printf("中文，按1\n");
-	printf("English, input 2\n");
-	printf("一夜暴富请按3\n");
-	scanf("%d",&language);
-	if(language==1)
-	{
-		int status=loadData();
-		if(status==1)
+		printf("中文，按1\n");
+		printf("English, input 2\n");
+		printf("一夜暴富请按4\n");
+		printf("退出按3\n");
+		scanf("%d",&language);
+		if(language==1)
 		{
-			printf("加载成功！\n");
-			showMenuC();
+			int status=loadData();
+			if(status==1)
+			{
+				printf("加载成功！\n");
+				showMenuC();
+				
+				
+			}
+			else
+			{
+				printf("加载失败！\n");
+			}
 			
+		}
+		else if(language==2)
+		{
+			int status=loadData();
+			if(status==1)
+			{
+				printf("Load successful！\n");
+				showMenuE();
+				
+			}
+			else
+			{
+				printf("failed to load！\n");
+			}
+			
+		}
+		else if(language==4)
+			{
+				printf("已报警，请你不要不知好歹，双手抱头蹲在地上，等待警察的到来");
+			}
+		else if(language==3)
+		{
+			break;
 		}
 		else
 		{
-			printf("加载失败！\n");
+			printf("输入错误！\n");
+			printf("Input error");
 		}
-		saveData();
 	}
-	else if(language==2)
-	{
-		int status=loadData();
-		if(status==1)
-		{
-			printf("Load successful！\n");
-			showMenuE();
-			
-		}
-		else
-		{
-			printf("failed to load！\n");
-		}
-		saveData();	
-	}
-	else if(language==3)
-	{
-		printf("已报警，请你不要不知好歹，双手抱头蹲在地上，等待警察的到来");
-	}
-	else
-	{
-		printf("输入错误！\n");
-		printf("Input error");
-	}
-	
-	return 0;
+				saveData();
+				return 0;
 } 
