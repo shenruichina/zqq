@@ -163,6 +163,7 @@ void saveMoneyC()
 	}
 	
 }
+
 void saveMoneyE()
 {
 	printf("please enter the deposit amount：");
@@ -292,14 +293,20 @@ void transferE()
 		printf("Account error！");
 	}
 }
-
+void printLinkedListC()
+{
+	
+	printf("姓名:%s\t账户:%s\t 余额:%d\n",curAccount->name,curAccount->username,curAccount->money);
+	
+	
+}
 void homePageC()
 {
 	while(1)
 	{
 		system("cls");
 		printf("请选择服务：");
-		printf("按1修改密码，按2存款，按3取款，按4转账,按0返回");
+		printf("按1修改密码，按2存款，按3取款，按4转账,按5查询，按0返回");
 		
 		int gn;
 		scanf("%d",&gn);
@@ -442,7 +449,7 @@ int loadData()
 			
 			//结点赋值：结点初始化
 			newNodeP->next=NULL;
-			fscanf(fp,"%s %s %d\n",newNodeP->username,newNodeP->password,&newNodeP->money);
+			fscanf(fp,"%s %s %s %d\n",newNodeP->name,newNodeP->username,newNodeP->password,&newNodeP->money);
 			
 			//添加结点到链表
 			if(head==NULL)
@@ -468,7 +475,7 @@ void saveData()
 		Account * curP=head;
 		while(curP!=NULL)
 		{
-			fprintf(fp,"%s %s %d\n",curP->username,curP->password,curP->money);
+			fprintf(fp,"%s %s %s %d\n",curP->name,curP->username,curP->password,curP->money);
 			curP=curP->next;
 		}
 	}
